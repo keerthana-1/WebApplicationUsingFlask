@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>num</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{url_for('static',filename='css/styles.css)}">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body><center>
+	<div class="container table-padding-top">
+<table class="table table-brdered table-striped bg-primary text-light">
+	{% for i in range(1,101,10): %}
+<tr>{% for j in range(i,i+10): %}
+<td>{{j}}</td>
+{% endfor %}
+</tr>
+{% endfor %}
+</table></center>
+</body>
+<script  src="{{url_for('static',filename='js/script.js')}}"></script>
+</html>

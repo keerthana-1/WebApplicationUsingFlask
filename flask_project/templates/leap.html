@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>leap year</title>
+</head>
+<body>
+{% for i in range(y1,y2+1): %}
+{% if i%400 and i%100==0 %}
+{{i}}
+{% elif i%4==0 %}
+{{i}}
+{% endif %}
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="container col-sm-4 offset-3">
+	<center><h1><b>Login</b></h1></center>
+	<form action="{{url_for('login')}}" method="POST">
+	<div class="form-group">
+		<label for="email"><h4><b>Email:</b></h4></label>
+		<input type="email" class="form-control" name="email" id="email" required="required">
+	</div>
+	
+	<div class="form-group">
+		<label for="password"><h4><b>Password:</b></h4></label>
+		<input type="password" class="form-control" name="password" id="password" required="required">
+	</div>
+	<input type="submit" value="login" class="btn btn-dark btn-block">
+</form>
+</div>
+{% endblock %}

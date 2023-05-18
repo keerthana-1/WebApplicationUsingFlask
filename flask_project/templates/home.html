@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>home</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-image: url('https://www.kommand.me/img/pictures%20for%20websites.jpg')" width="800px" ;>
+<!--navbar-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-light">
+<!--brand logo-->
+	<a class="navbar-brand" href="{{url_for('home')}}">
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzKvCm5ddcHyTGSPcSpRVsxoVJPdRZ58hg0cGFL4I_bXLfG-hyrg" alt="logo" style="width:40px;"></a>
+<!--links-->
+<ul class="navbar-nav">
+	<li class="nav-item">
+		{% if 'email' in session %}
+		<a class="nav-link" href="{{url_for('newpost')}}"><h4 style="color:white"><b>Newpost</b></h4></a>
+		{%endif%}
+	</li>
+</ul>
+<ul class="navbar-nav">
+	<li class="nav-item">
+		<a class="nav-link" href="{{url_for('register')}}"><h4 style="color:white"><b>Register</b></h4></a>
+	</li>
+</ul>
+<ul class="navbar-nav">
+	<li class="nav-item">
+		{% if 'email' in session %}
+		<a class="nav-link" href="{{url_for('fileupload')}}"><h4 style="color:white"><b>File Upload</b></h4></a>
+		{%endif%}
+	</li>
+</ul>
+<ul class="navbar-nav">
+	<li class="nav-item">
+		{%if 'email' in session%}
+		<a class="nav-link" href="{{url_for('logout')}}"><h4 style="color:white"><b>Logout &nbsp&nbsp&nbsp {{session['email']}}</b></h4></a>
+		{%else%}
+		<a class="nav-link" href="{{url_for('login')}}"><h4 style="color:white"><b>Login</b></h4></a>
+		{%endif%}
+		
+	</li>
+</ul>
+
+</nav>
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category,message in messages %}
+<div class="alert alert-{{category}} alert-dismissible">
+	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	{{message}}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+{% block content %}
+
+{% endblock %}
+
+
+</body>
+</html>
